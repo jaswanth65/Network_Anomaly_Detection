@@ -302,29 +302,25 @@ print(classification_report(multi_val_y, predictions, target_names=class_labels)
 
 ## 📁 Project Structure
 
-> Adjust this to match your actual repo layout before publishing.
-
 ```
-network-anomaly-detection/
-├── Network_Anomaly_Detection.ipynb            # Full notebook: preprocessing → training → evaluation
-├── Network_Anomaly_Detection.pdf              # Exported notebook with outputs
-├── notes/
-│   ├── 0_intro.md                             # Theory: decision trees, random forests, NSL-KDD
-│   ├── 1_Preprocessing_and_splitting_the_Dataset.md
-│   └── 2_Training_and_Evaluation.md
-├── KDD+.txt                                   # NSL-KDD dataset (downloaded)
-├── network_anomaly_detection_model.joblib     # Saved trained model
-├── requirements.txt
+Network_Anomaly_Detection/
+├── Network_Anomaly_Detection.ipynb   # Full notebook: preprocessing → training → evaluation
+├── Network_Anomaly_Detection.pdf     # Exported notebook with all outputs
+├── KDD+.txt                          # NSL-KDD combined dataset (148,517 rows)
+├── requirements.txt                  # Python dependencies
+├── LICENSE
 └── README.md
 ```
+
+> The trained model file `network_anomaly_detection_model.joblib` is **generated** when you run the notebook's last cell; it is not stored in the repo.
 
 ---
 
 ## 🔧 Installation
 
 ```bash
-git clone https://github.com/<your-username>/network-anomaly-detection.git
-cd network-anomaly-detection
+git clone https://github.com/jaswanth65/Network_Anomaly_Detection.git
+cd Network_Anomaly_Detection
 
 python -m venv venv
 source venv/bin/activate      # Windows: venv\Scripts\activate
@@ -345,7 +341,7 @@ requests
 jupyter
 ```
 
-**Download the dataset:**
+**Dataset:** `KDD+.txt` is already included in this repo, so no download is needed. To fetch a fresh copy instead:
 
 ```python
 import requests, zipfile, io
@@ -356,7 +352,7 @@ z = zipfile.ZipFile(io.BytesIO(response.content))
 z.extractall('.')   # extracts into the current directory
 ```
 
-The notebook expects a file named `KDD+.txt`. If your extracted file has a different name, update `file_path` in the notebook.
+The notebook reads `KDD+.txt` from the project folder. If your file has a different name or location, update `file_path` in the notebook.
 
 ---
 
@@ -417,4 +413,4 @@ print([labels[p] for p in predictions])
 
 ## 📄 License
 
-Add a license (e.g. MIT) here if you intend for others to reuse this code.
+This project is released under the MIT License. See the [LICENSE](LICENSE) file for details.
